@@ -1,5 +1,5 @@
-# Mario
-Implementation of the paper "Mario: Multi-round Multiple-Aggregator Secure Aggregation with Robustness against Malicious Actors"
+# RFL
+Implementation of the paper "RFL: Robust and Fault-Tolerant Federated Learning"
 
 Setup
 ```
