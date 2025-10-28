@@ -18,7 +18,11 @@ def read_idx(filename):
     with open(filename, 'rb') as f:
         zero, data_type, dims = struct.unpack('>HBB', f.read(4))
         shape = tuple(struct.unpack('>I', f.read(4))[0] for d in range(dims))
-        return np.fromstring(f.read(), dtype=np.uint8).reshape(shape)
+        data_bytes = f.read()
+        try:
+            return np.frombuffer(data_bytes, dtype=np.uint8).reshape(shape)
+        except TypeError:
+            return np.fromstring(data_bytes, dtype=np.uint8).reshape(shape)
 
 def share_data_mnist(n_parties):
     data = read_idx("data/MNIST/raw/train-images-idx3-ubyte")
