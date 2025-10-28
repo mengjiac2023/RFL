@@ -128,7 +128,6 @@ print("=====================")
 print("Creating 2 servers for aggregation")
 for i in range(2):
     s = Server(i+1, ctx)
-    # 设置服务器的seeds（如果需要的话）
     for p in Client.clients:
         if hasattr(p, 'seeds'):
             seed = get_random_bytes(16)
